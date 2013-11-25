@@ -127,11 +127,12 @@ wd_print_msg()
 
 wd_print_usage()
 {
-		print "Usage: wd [add|-a|--add] [rm|-r|--remove] [ls|-l|--list] <point>"
+    print "Usage: wd [add|-a|--add] [rm|-r|--remove] [ls|-l|--list] <point>"
     print "\nCommands:"
     print "\t add \t Adds the current working directory to your warp points"
     print "\t add! \t Overwrites existing warp point"
     print "\t remove  Removes the given warp point"
+    print "\t show \t Outputs warp points to current directory"
     print "\t list \t Outputs all stored warp points"
     print "\t help \t Show this extremely helpful text"
 }

@@ -1,5 +1,7 @@
 #compdef wd.sh
 
+zstyle ":completion:*:descriptions" format "%B%d%b"
+
 CONFIG=$HOME/.warprc
 
 local -a main_commands
@@ -12,16 +14,12 @@ main_commands=(
 )
 
 local -a points
-i=1
 while read line
 do
-    s=$(awk "{ gsub(/\/Users\/$USER|\/home\/$USER/,\"~\"); print }" <<< $line)
-    points[i]=$s
-
-    i="$(( $i+1 ))"
+    points+=$(awk "{ gsub(/\/Users\/$USER|\/home\/$USER/,\"~\"); print }" <<< $line)
 done < $CONFIG
 
-_wd() 
+_wd()
 {
     # init variables
     local curcontext="$curcontext" state line
@@ -34,16 +32,13 @@ _wd()
 
     case $state in
         command)
-            #_describe -t main-commands 'main commands' main_commands && ret=0
-            _describe -t warp-points 'warp points' points && ret=0
-            #_arguments '1:command:(${(k)points})'
             compadd "$@" add rm ls show
+            _describe -t warp-points 'Warp points:' points && ret=0
             ;;
         argument)
             case $words[2] in
                 rm|add!)
                     _describe -t warp-points 'warp points' points && ret=0
-                    #compadd "$@" ${(k)points}
                     ;;
                 *)
             esac
@@ -51,11 +46,3 @@ _wd()
 }
 
 _wd "$@"
-
-# Local Variables:
-# mode: Shell-Script
-# sh-indentation: 2
-# indent-tabs-mode: nil
-# sh-basic-offset: 2
-# End:
-# vim: ft=zsh sw=2 ts=2 et
