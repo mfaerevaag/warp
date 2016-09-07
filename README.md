@@ -3,7 +3,7 @@ wd
 
 [![Build Status](https://travis-ci.org/mfaerevaag/wd.png?branch=master)](https://travis-ci.org/mfaerevaag/wd)
 
-`wd` (*warp directory*) lets you jump to custom directories in zsh, without using `cd`. Why? Because `cd` seems ineffecient when the folder is frequently visited or has a long path.
+`wd` (*warp directory*) lets you jump to custom directories in zsh, without using `cd`. Why? Because `cd` seems inefficient when the folder is frequently visited or has a long path.
 
 *NOTE*: If you are not using zsh, check out the `ruby` branch which has `wd` implemented as a gem.
 
@@ -12,7 +12,7 @@ wd
 
 ### oh-my-zsh
 
-`wd` comes bundles with [oh-my-zshell](https://github.com/robbyrussell/oh-my-zsh)!
+`wd` comes bundled with [oh-my-zshell](https://github.com/robbyrussell/oh-my-zsh)!
 
 Just add the plugin in your `~/.zshrc` file:
 
